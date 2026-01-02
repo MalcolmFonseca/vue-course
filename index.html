@@ -9,53 +9,26 @@
 
     <body class="h-full grid place-items-center">
         <div id="app">
-            <section v-show="inProgressAssignments.length">
-                <h2 class="font-bold mb-2">In Progress</h2>
-                <ul>
-                    <li 
-                        v-for="assignment in inProgressAssignments" 
-                        :key="assignment.id"
-                    >
-                        <label>{{ assignment.name }}
-                            <input v-model="assignment.complete" type="checkbox">
-                        </label>
-                    </li>
-                </ul>
-            </section>
-            <section v-show="completedAssignments.length">
-                <h2 class="font-bold mb-2 mt-8">Completed</h2>
-                <ul>
-                    <li 
-                        v-for="assignment in completedAssignments" 
-                        :key="assignment.id"
-                    >
-                        <label>{{ assignment.name }}
-                            <input v-model="assignment.complete" type="checkbox">
-                        </label>
-                    </li>
-                </ul>
-            </section>
+            <app-button>Hi there</app-button>
+            <app-button>hello</app-button>
         </div>
 
         <script>
             let app = {
-                data() {
-                    return {
-                        assignments: [
-                            { name: 'Finish project', complete: false, id: 1},
-                            { name: 'Read chapter 4', complete: false, id: 2},
-                            { name: 'Turn in homework', complete: false, id: 3}
-                        ]
-                    }
-                },
+                components: {
+                    'app-button': {
+                        template: `
+                            <button class="bg-gray-200 hover:bg-gray-400 border rounded px-5 py-2 disabled:cursor-not-allowed" :disabled="processing">
+                                <slot />
+                            </button>
+                        `,
 
-                computed: {
-                    inProgressAssignments() {
-                        return this.assignments.filter(assignment=> !assignment.complete);
+                        data() {
+                            return {
+                                processing:true
+                            };
+                        }
                     },
-                    completedAssignments() {
-                        return this.assignments.filter(assignment=> assignment.complete);
-                    }
                 }
             };
 
