@@ -6,7 +6,7 @@ let team = useTeamStore();
 <template>
     <header>
         <h1>{{ team.name }} Team</h1>
-        <button :disabled="!team.spotsRemaining">Add Member ({{ team.spotsRemaining }} spots
+        <button :disabled="!team.spotsRemaining" @click="$emit('add')">Add Member ({{ team.spotsRemaining }} spots
             left)</button>
     </header>
 </template>

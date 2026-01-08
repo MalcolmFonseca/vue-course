@@ -21,11 +21,6 @@
             "name": "Smith Doe",
             "email": "Smith@doe.com",
             "status": "Active"
-        },
-        {
-            "name": "Sarah Doe",
-            "email": "Sarah@doe.com",
-            "status": "Active"
         }
     ]
 }

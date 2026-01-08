@@ -5,6 +5,6 @@ let team = useTeamStore();
 
 <template>
     <footer>
-        <h5>{{ team.spotsRemaining }} Member Team</h5>
+        <h5>{{ team.members.length }} Member Team</h5>
     </footer>
 </template>

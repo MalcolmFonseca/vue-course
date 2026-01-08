@@ -6,17 +6,19 @@ let team = useTeamStore();
 </script>
 
 <template>
-    <table>
-        <thead>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Status</th>
-        </thead>
-        <tbody>
-            <TeamMember v-for="member in team.members" :name="member.name" :email="member.email"
-                :status="member.status" />
-        </tbody>
-    </table>
+    <div>
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Status</th>
+            </thead>
+            <tbody>
+                <TeamMember v-for="member in team.members" :name="member.name" :email="member.email"
+                    :status="member.status" />
+            </tbody>
+        </table>
 
-    <p v-show="!team.spotsRemaining">No remaining spots left!</p>
+        <p v-show="!team.spotsRemaining">No remaining spots left!</p>
+    </div>
 </template>
